@@ -1,11 +1,12 @@
 import json
 
-with open('characters.json','r') as f:
+with open('characters.json','r',encoding='utf-8') as f:
     file = json.load(f)
 
-style = '''<style>
+style = '''<!DOCTYPE html>
+<style>
     body {
-        font-size: 2rem;
+        font-size: 1.5rem;
         font-family: Verdana;
         padding: 2em;
     }
@@ -20,33 +21,51 @@ for character in file["characters"]:
     spokenLanguages = f''
     index = 0
     for i in languages:
-        spokenLanguages += f'''<li>{languages[index]}</li>'''
+        spokenLanguages += f'''<li><b>{languages[index]}</b></li>'''
         if index != len(languages)-1:
             spokenLanguages += '''
                 '''
         index += 1
     info = f'''
 <a href='../index.html'>
-    <== Back</a>
+    <= Back</a>
         <h1>{character['full']}</h1>
         <h2>{character['pronunciation']}</h2>
         <ul>
-            <li>Species: {character['species']}</li>
-            <li>Sex: {character['sex']}</li>
-            <li>Job: {character['description']['job']}</li>
-            <li>Nationality: {character['description']['nationality']}</li>
-            <li>Place of Birth: {character['description']['hometown']}</li>
-            <li>Spoken Languages:</li>
-            <ul>
+            <li>Species: <b>{character['species']}</b></li>
+            <li>Sex: <b>{character['sex']}</b></li>
+            <li>Job: <b>{character['description']['job']}</b></li>
+            <li>Place of Birth: <b>{character['description']['pob']}</b></li>
+            <li>Spoken Languages</li>
+            <ol>
                 {spokenLanguages}
-            </ul>
-        </ul>'''
+            </ol>
+        </ul>
+        <p>{character['description']['text']}</p>'''
     nameList.append(character['name'])
-    with open(f'characters/{character['full'].lower().replace(' ','')}.html','w') as f:
+    with open(f'characters/{character['full'].lower().replace(' ','-')}.html','w',encoding='utf-8') as f:
         f.write(f'''{style}
 {info}''')
     
-    homePage += f'''<li><a href='characters/{character['full'].lower().replace(' ','')}.html'>{character['full']}</a></li>
+    homePage += f'''<li><a href='characters/{character['full'].lower().replace(' ','-')}.html'>{character['full']}</a></li>
 '''
-    with open('index.html','w') as f:
+    with open('index.html','w',encoding='utf-8') as f:
         f.write(homePage)
+
+'''
+{
+    "name": "",
+    "full": "",
+    "pronunciation": "",
+    "species": "",
+    "sex": "",
+    "description": {
+        "job": "",
+        "pob": "",
+        "languages": [
+            ""
+        ],
+        "text": ""
+    }
+}
+'''
