@@ -26,14 +26,14 @@ for character in file["characters"]:
                 '''
         index += 1
     info = f'''
-<a href='./index.html'>
+<a href='../index.html'>
     <== Back</a>
         <h1>{character['full']}</h1>
         <h2>{character['pronunciation']}</h2>
         <ul>
             <li>Species: {character['species']}</li>
             <li>Sex: {character['sex']}</li>
-            <li>JobL {character['description']['job']}</li>
+            <li>Job: {character['description']['job']}</li>
             <li>Nationality: {character['description']['nationality']}</li>
             <li>Place of Birth: {character['description']['hometown']}</li>
             <li>Spoken Languages:</li>
@@ -46,7 +46,7 @@ for character in file["characters"]:
         f.write(f'''{style}
 {info}''')
     
-    homePage += f'''<li><a href='{character['name']}.html'>{character['full']}</a></li>
+    homePage += f'''<li><a href='characters/{character['name'].lower()}.html'>{character['full']}</a></li>
 '''
     with open('index.html','w') as f:
         f.write(homePage)
