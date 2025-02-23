@@ -1,11 +1,21 @@
 {
     "characters": [
         {
-            "name": "Joanna Tuttle, RN, BScN, IC Nurse, TNCC",
+            "full": "Joanna Tuttle, RN, BScN, IC Nurse, TNCC",
+            "name": "Joanna",
             "pronunciation": "[yoh-AH-nah]-[TUH-tuul]",
             "species": "Changeling",
             "sex": "Female",
-            "description": "<li>Job: Neurotrauma Nurse\n<li>Nationality: Dutch\n<li>Hometown: Smallingerland\n<li>Spoken Languages:\n<ul><li>West Frisian<li>Dutch<li>English</ul>"
+            "description": {
+                "job": "Neurotrauma Nurse",
+                "nationality": "Dutch",
+                "hometown": "Smallingerland",
+                "languages": [
+                    "West Frisian",
+                    "Dutch",
+                    "English"
+                ]
+            }
         }
     ]
 }
