@@ -42,11 +42,11 @@ for character in file["characters"]:
             </ul>
         </ul>'''
     nameList.append(character['name'])
-    with open(f'characters/{character['name'].lower()}.html','w') as f:
+    with open(f'characters/{character['full'].replace(' ','').lower()}.html','w') as f:
         f.write(f'''{style}
 {info}''')
     
-    homePage += f'''<li><a href='characters/{character['name'].lower()}.html'>{character['full']}</a></li>
+    homePage += f'''<li><a href='characters/{character['name'].replace(' ','').lower()}.html'>{character['full']}</a></li>
 '''
     with open('index.html','w') as f:
         f.write(homePage)
