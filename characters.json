@@ -1,0 +1,9 @@
+{
+    "character": {
+        "name": "First Last",
+        "pronunciation": "[first]-[last]",
+        "species": "Species",
+        "sex": "Sex",
+        "description": "Description"
+    }
+}
